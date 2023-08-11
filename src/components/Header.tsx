@@ -6,6 +6,7 @@ import { BiChevronRight } from "react-icons/bi";
 
 import { PrimaryLink } from "~/components/PrimaryLink";
 import { BurgerButton } from "~/components/BurgerButton";
+import { AnimatedArrow } from "~/components/AnimatedArrow";
 
 const links = [
   {
@@ -32,7 +33,7 @@ const links = [
 
 function LogoLink() {
   return (
-    <PrimaryLink href="/" className="flex items-center gap-3">
+    <PrimaryLink href="/" className="flex items-center gap-3 hover:opacity-70">
       <FaStripe size={60} />
     </PrimaryLink>
   );
@@ -70,18 +71,18 @@ export function Header() {
           <div className="hidden w-full items-center justify-between lg:order-2 lg:flex lg:w-auto">
             <ul className="mt-4 flex flex-col items-center font-medium lg:mt-0 lg:flex-row lg:space-x-8">
               <li>
-                <PrimaryLink href="#" className="flex items-center gap-1">
+                <PrimaryLink href="#" className="group flex items-center gap-1">
                   <span>Contact sales</span>
-                  <BiChevronRight size={22} />
+                  <AnimatedArrow />
                 </PrimaryLink>
               </li>
               <li>
                 <PrimaryLink
                   href="#"
-                  className="flex items-center gap-1 rounded-full bg-white/25 py-2 pl-4 pr-2"
+                  className="group flex items-center gap-1 rounded-full bg-white/25 py-[6px] pl-[18px] pr-[10px] transition-opacity hover:bg-white/40 hover:opacity-100"
                 >
                   <span>Sign in</span>
-                  <BiChevronRight size={22} />
+                  <AnimatedArrow />
                 </PrimaryLink>
               </li>
             </ul>

@@ -8,7 +8,7 @@ export function PrimaryLink(
   return (
     <Link
       {...props}
-      className={classnames("hover:text-primary-400", props.className)}
+      className={classnames("hover:opacity-70", props.className)}
     >
       {props.children}
     </Link>
