@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { AiOutlineClose } from "react-icons/ai";
 import { useRouter } from "next/router";
 import { FaStripe } from "react-icons/fa";
+import { BiChevronRight } from "react-icons/bi";
 
 import { PrimaryLink } from "~/components/PrimaryLink";
 import { BurgerButton } from "~/components/BurgerButton";
@@ -51,19 +52,38 @@ export function Header() {
 
   return (
     <header>
-      <nav className="px-4 lg:px-6">
-        <div className="border-primary-300/30 relative mx-auto flex max-w-screen-xl flex-wrap items-center justify-between border-b py-3">
-          <LogoLink />
+      <nav className="px-4 text-white lg:px-6">
+        <div className="relative mx-auto flex max-w-screen-xl flex-wrap items-center justify-between py-2">
           <div className="flex items-center lg:order-2">
             <BurgerButton onClick={toggleMenu} />
           </div>
-          <div className="hidden w-full items-center justify-between lg:order-1 lg:flex lg:w-auto">
+          <div className="hidden w-full items-center justify-between gap-12 lg:order-1 lg:flex lg:w-auto">
+            <LogoLink />
             <ul className="mt-4 flex flex-col font-medium lg:mt-0 lg:flex-row lg:space-x-8">
               {links.map((link) => (
                 <li key={link.href}>
                   <PrimaryLink href={link.href}>{link.label}</PrimaryLink>
                 </li>
               ))}
+            </ul>
+          </div>
+          <div className="hidden w-full items-center justify-between lg:order-2 lg:flex lg:w-auto">
+            <ul className="mt-4 flex flex-col items-center font-medium lg:mt-0 lg:flex-row lg:space-x-8">
+              <li>
+                <PrimaryLink href="#" className="flex items-center gap-1">
+                  <span>Contact sales</span>
+                  <BiChevronRight size={22} />
+                </PrimaryLink>
+              </li>
+              <li>
+                <PrimaryLink
+                  href="#"
+                  className="flex items-center gap-1 rounded-full bg-white/25 py-2 pl-4 pr-2"
+                >
+                  <span>Sign in</span>
+                  <BiChevronRight size={22} />
+                </PrimaryLink>
+              </li>
             </ul>
           </div>
           {/* MOBILE NAV BAR */}
