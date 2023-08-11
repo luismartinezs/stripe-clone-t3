@@ -1,3 +1,4 @@
+import { HeroGraphic } from "~/components/HeroSection/HeroGraphic";
 import { SectionWrapper } from "~/components/SectionWrapper";
 
 export function HeroSection() {
@@ -18,6 +19,7 @@ export function HeroSection() {
             and manage their businesses online.
           </p>
         </div>
+        <HeroGraphic />
       </div>
     </SectionWrapper>
   );
