@@ -2,11 +2,11 @@ import { useEffect, useState } from "react";
 import { AiOutlineClose } from "react-icons/ai";
 import { useRouter } from "next/router";
 import { FaStripe } from "react-icons/fa";
-import { BiChevronRight } from "react-icons/bi";
 
 import { PrimaryLink } from "~/components/PrimaryLink";
 import { BurgerButton } from "~/components/BurgerButton";
 import { AnimatedArrow } from "~/components/AnimatedArrow";
+import classnames from "classnames";
 
 const links = [
   {
@@ -39,7 +39,8 @@ function LogoLink() {
   );
 }
 
-export function Header() {
+export function Header(props: React.ComponentPropsWithoutRef<"header">) {
+  const { className, ...otherProps } = props;
   const router = useRouter();
   const [open, setOpen] = useState(false);
 
@@ -52,7 +53,10 @@ export function Header() {
   }, [router.pathname]);
 
   return (
-    <header className="absolute">
+    <header
+      className={classnames("absolute left-0 right-0 top-0", className)}
+      {...otherProps}
+    >
       <nav className="px-4 text-white lg:px-6">
         <div className="relative mx-auto flex max-w-screen-xl flex-wrap items-center justify-between py-2">
           <div className="flex items-center lg:order-2">

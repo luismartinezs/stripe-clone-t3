@@ -3,9 +3,9 @@ import { Header } from "~/components/Header";
 
 export function PageLayout({ children }: { children: React.ReactNode }) {
   return (
-    <div className="relative flex h-full min-h-screen flex-col justify-between">
+    <div className="relative isolate flex h-full min-h-screen flex-col justify-between">
       <div>
-        <Header />
+        <Header className="z-30" />
         <main className="container mx-auto px-2 py-12">{children}</main>
       </div>
       <Footer />
