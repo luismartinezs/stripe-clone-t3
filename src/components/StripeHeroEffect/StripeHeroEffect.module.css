@@ -1,23 +1,15 @@
-.hero {
-}
-
 .container {
   isolation: isolate;
 }
 
-.titleContainer {
-  /* padding-top: 300px; */
-}
-
 .title {
-  margin-top: 200px;
+  margin-top: 100px;
   position: absolute;
   font-size: 94px;
-  /* margin: 0; */
   display: flex;
   align-items: flex-end;
   letter-spacing: -0.04rem;
-  max-width: 13ch;
+  max-width: 10ch;
   font-weight: 600;
   line-height: 97px;
   letter-spacing: -0.05em;

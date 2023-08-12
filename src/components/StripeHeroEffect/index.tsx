@@ -7,7 +7,8 @@ import { useEffect, useRef } from "react";
 
 const title = "Payments infrastructure for the internet";
 
-export function StripeHeroEffect() {
+export function StripeHeroEffect(props: React.ComponentPropsWithoutRef<"div">) {
+  const { className, ...otherProps } = props;
   const canvas = useRef<HTMLCanvasElement>(null);
 
   useEffect(() => {
@@ -17,7 +18,11 @@ export function StripeHeroEffect() {
   }, []);
 
   return (
-    <section className={classnames(styles.hero, "")} id="hero">
+    <div
+      className={classnames(styles.hero, className)}
+      id="hero"
+      {...otherProps}
+    >
       <div className={styles.container}>
         <div className={styles.titleContainer}>
           <h1 className={classnames(styles.title, styles.titleMain)}>
@@ -46,6 +51,6 @@ export function StripeHeroEffect() {
           ></canvas>
         </div>
       </div>
-    </section>
+    </div>
   );
 }
