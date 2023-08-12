@@ -3,6 +3,9 @@ import Image from "next/image";
 import { BsCreditCard2Back } from "react-icons/bs";
 import { BiChevronDown } from "react-icons/bi";
 import { AiFillApple } from "react-icons/ai";
+import { FiWind } from "react-icons/fi";
+
+import styles from "./HeroGraphic.module.css";
 
 type TOrientation = "vertical" | "horizontal";
 
@@ -61,22 +64,29 @@ function LargeCard({
   return (
     <div
       style={getCardStyles(size, orientation)}
-      className={classNames("bg-pink-500", className)}
+      className={classNames("bg-pink-500", className, styles.bgPattern)}
     >
       {children}
     </div>
   );
 }
 
-function MobileGraphic() {
+function MobileGraphic(props: React.ComponentPropsWithoutRef<"div">) {
+  const { className, ...otherProps } = props;
   return (
-    <div className="mt-[60px] flex h-[533px] w-[264px] flex-col items-center justify-center gap-2  rounded-[36px] bg-[#f6f9fc] p-[8px] text-center text-[16px] shadow-graphic">
-      <div className="relative flex h-full flex-col items-center justify-center rounded-[29px]   bg-white px-[16px] py-[24px] text-center text-[0.75rem] text-slate-500">
+    <div
+      className={classNames(
+        "mt-[60px] flex h-[533px] w-[264px] flex-col items-center justify-center gap-2 rounded-[36px] bg-[#f6f9fc] bg-origin-padding p-[8px] text-center text-[16px] shadow-graphic",
+        className
+      )}
+      {...otherProps}
+    >
+      <div className="relative flex h-full flex-col items-center justify-center rounded-[29px] bg-white px-[16px] py-[24px] text-center text-[0.75rem] text-slate-500">
         <div className="relative isolate mb-4">
-          <LargeCard size={70} orientation="vertical" className="shadow-lg" />
+          <LargeCard size={70} orientation="vertical" className="shadow" />
 
-          <div className="absolute left-1 top-1 z-10">
-            <LargeCard size={70} orientation="vertical" className="shadow" />
+          <div className="absolute left-[10px] top-[10px] z-10">
+            <LargeCard size={70} orientation="vertical" className="shadow-lg" />
           </div>
         </div>
         <div className="mt-1">
@@ -156,11 +166,44 @@ function MobileGraphic() {
   );
 }
 
+function DesktopGraphic(props: React.ComponentPropsWithoutRef<"div">) {
+  const { className, ...otherProps } = props;
+  return (
+    <div
+      className={classNames(
+        "grid-rows-auto absolute left-[93px] top-0 grid w-[929px] grid-cols-[152px_1fr] gap-[24px] rounded-[8px] p-[24px] text-[11px] font-light leading-[14px] tracking-[.2px] text-[#425466]",
+        styles.desktopGraphic,
+        className
+      )}
+      {...otherProps}
+    >
+      {/* sidebar */}
+      <div className="grid grid-cols-[auto-flow,max-content] grid-rows-[max-content] items-center gap-[8px] font-semibold text-white">
+        <div className="flex items-center gap-2">
+          <div className="max-w-min rounded-full bg-white p-1">
+            <FiWind size={18} className="text-pink-500/50" />
+          </div>
+          <span className="font-bold tracking-wider">ROCKET RIDES</span>
+          <BiChevronDown size={18} />
+        </div>
+      </div>
+      {/* Main */}
+      <div className="h-[489px] rounded bg-white p-4 text-slate-500 shadow">
+        To do: fill in with mock dashboard
+      </div>
+    </div>
+  );
+}
+
 export function HeroGraphic(props: React.ComponentPropsWithoutRef<"div">) {
   const { className, ...otherProps } = props;
   return (
-    <div className={classNames("select-none", className)} {...otherProps}>
-      <MobileGraphic />
+    <div
+      className={classNames("relative isolate select-none", className)}
+      {...otherProps}
+    >
+      <DesktopGraphic className="z-0" aria-hidden="true" />
+      <MobileGraphic className="z-10" aria-hidden="true" />
     </div>
   );
 }
