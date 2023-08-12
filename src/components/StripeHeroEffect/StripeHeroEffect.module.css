@@ -1,0 +1,54 @@
+.hero {
+}
+
+.container {
+  isolation: isolate;
+}
+
+.titleContainer {
+  /* padding-top: 300px; */
+}
+
+.title {
+  margin-top: 200px;
+  position: absolute;
+  font-size: 94px;
+  /* margin: 0; */
+  display: flex;
+  align-items: flex-end;
+  letter-spacing: -0.04rem;
+  max-width: 13ch;
+  font-weight: 600;
+  line-height: 97px;
+  letter-spacing: -0.05em;
+}
+
+.titleMain {
+  color: hsl(180, 20%, 20%);
+  opacity: 0.9;
+  mix-blend-mode: color-burn;
+}
+
+.titleOverlay {
+  mix-blend-mode: revert;
+  z-index: 2;
+  color: #111;
+  opacity: 0.3;
+}
+
+.canvasContainer {
+  height: 76vh;
+  width: 100vw;
+  position: absolute;
+  top: auto;
+  left: 0;
+  transform-origin: -1000px 100%;
+  transform: skewY(-11deg);
+  overflow: hidden;
+  z-index: -1;
+}
+
+.canvas {
+  width: 100%;
+  height: 100%;
+}

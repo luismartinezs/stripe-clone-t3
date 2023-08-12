@@ -52,7 +52,7 @@ export function Header() {
   }, [router.pathname]);
 
   return (
-    <header>
+    <header className="absolute">
       <nav className="px-4 text-white lg:px-6">
         <div className="relative mx-auto flex max-w-screen-xl flex-wrap items-center justify-between py-2">
           <div className="flex items-center lg:order-2">
@@ -62,7 +62,7 @@ export function Header() {
             <LogoLink />
             <ul className="mt-4 flex flex-col font-medium lg:mt-0 lg:flex-row lg:space-x-8">
               {links.map((link) => (
-                <li key={link.href}>
+                <li key={link.label}>
                   <PrimaryLink href={link.href}>{link.label}</PrimaryLink>
                 </li>
               ))}
@@ -110,7 +110,7 @@ export function Header() {
                 <LogoLink />
                 <ul className="mt-4 flex flex-col items-center gap-5 text-2xl">
                   {links.map((link) => (
-                    <li key={link.href}>
+                    <li key={link.label}>
                       <PrimaryLink href={link.href}>{link.label}</PrimaryLink>
                     </li>
                   ))}
