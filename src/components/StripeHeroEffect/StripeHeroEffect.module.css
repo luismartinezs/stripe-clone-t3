@@ -28,7 +28,7 @@
 }
 
 .canvasContainer {
-  height: 76vh;
+  height: min(76vh, max(500px, 50vw));
   width: 100vw;
   position: absolute;
   top: auto;

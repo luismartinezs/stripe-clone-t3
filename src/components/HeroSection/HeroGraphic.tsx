@@ -64,7 +64,7 @@ function LargeCard({
   return (
     <div
       style={getCardStyles(size, orientation)}
-      className={classNames("bg-pink-500", className, styles.bgPattern)}
+      className={classNames(className, "border border-gray-200")}
     >
       {children}
     </div>
@@ -83,10 +83,18 @@ function MobileGraphic(props: React.ComponentPropsWithoutRef<"div">) {
     >
       <div className="relative flex h-full flex-col items-center justify-center rounded-[29px] bg-white px-[16px] py-[24px] text-center text-[0.75rem] text-slate-500">
         <div className="relative isolate mb-4">
-          <LargeCard size={70} orientation="vertical" className="shadow" />
+          <LargeCard
+            size={70}
+            orientation="vertical"
+            className="bg-gradient-to-tl from-violet-500 to-orange-300 shadow"
+          />
 
           <div className="absolute left-[10px] top-[10px] z-10">
-            <LargeCard size={70} orientation="vertical" className="shadow-lg" />
+            <LargeCard
+              size={70}
+              orientation="vertical"
+              className="bg-gradient-to-br from-yellow-100 via-yellow-300 to-yellow-500 shadow-lg"
+            />
           </div>
         </div>
         <div className="mt-1">

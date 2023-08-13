@@ -1,9 +1,10 @@
 // partly based on this https://www.youtube.com/watch?v=neD6rV70Mlk
+import { useEffect, useRef } from "react";
 import classnames from "classnames";
 import styles from "./StripeHeroEffect.module.css";
 
 import { gradient } from "~/utils/gradient";
-import { useEffect, useRef } from "react";
+import { config } from "~/config";
 
 const title = "Payments infrastructure for the internet";
 
@@ -14,7 +15,7 @@ export function StripeHeroEffect(props: React.ComponentPropsWithoutRef<"div">) {
   const canvas = useRef<HTMLCanvasElement>(null);
 
   useEffect(() => {
-    if (canvas.current) {
+    if (canvas.current && !config.disableHeroAnimation) {
       gradient(canvas.current)();
     }
   }, []);
@@ -43,7 +44,13 @@ export function StripeHeroEffect(props: React.ComponentPropsWithoutRef<"div">) {
             {title}
           </div>
         </div>
-        <div className={styles.canvasContainer}>
+        <div
+          className={classnames(
+            styles.canvasContainer,
+            config.disableHeroAnimation &&
+              "bg-gradient-to-tr from-orange-500 via-purple-500 to-pink-500"
+          )}
+        >
           <canvas
             ref={canvas}
             id="gradientCanvas"
