@@ -1,16 +1,19 @@
+import { GiHamburgerMenu } from "react-icons/gi";
+
 export function BurgerButton({ onClick }: { onClick: () => void }) {
   return (
     <button
       onClick={() => onClick()}
       data-collapse-toggle="mobile-menu"
       type="button"
-      className="ml-1 inline-flex items-center rounded-lg p-2 text-sm text-gray-200 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-200 dark:hover:bg-primary-900 dark:focus:ring-primary-600 lg:hidden"
+      className="rounded-full bg-white/30 px-4 py-2 hover:bg-white/50"
       aria-controls="mobile-menu"
       aria-expanded="false"
     >
       <span className="sr-only">Open main menu</span>
-      <svg
-        className="h-8 w-8"
+      <GiHamburgerMenu size={20} />
+      {/* <svg
+        className="h-6 w-6"
         fill="currentColor"
         viewBox="0 0 20 20"
         xmlns="http://www.w3.org/2000/svg"
@@ -22,7 +25,7 @@ export function BurgerButton({ onClick }: { onClick: () => void }) {
         />
       </svg>
       <svg
-        className="hidden h-8 w-8"
+        className="hidden h-6 w-6"
         fill="currentColor"
         viewBox="0 0 20 20"
         xmlns="http://www.w3.org/2000/svg"
@@ -32,7 +35,7 @@ export function BurgerButton({ onClick }: { onClick: () => void }) {
           d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z"
           clipRule="evenodd"
         />
-      </svg>
+      </svg> */}
     </button>
   );
 }

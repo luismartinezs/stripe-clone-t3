@@ -1,7 +1,8 @@
 import { useEffect, useState } from "react";
-import { AiOutlineClose } from "react-icons/ai";
 import { useRouter } from "next/router";
 import { FaStripe } from "react-icons/fa";
+import { GrFormClose } from "react-icons/gr";
+import { BsChevronRight } from "react-icons/bs";
 
 import { PrimaryLink } from "~/components/PrimaryLink";
 import { BurgerButton } from "~/components/BurgerButton";
@@ -31,9 +32,17 @@ const links = [
   },
 ];
 
-function LogoLink() {
+function LogoLink(props: React.ComponentPropsWithoutRef<"a">) {
+  const { className, ...otherProps } = props;
   return (
-    <PrimaryLink href="/" className="flex items-center gap-3 hover:opacity-70">
+    <PrimaryLink
+      href="/"
+      className={classnames(
+        "flex items-center gap-3 hover:opacity-70",
+        className
+      )}
+      {...otherProps}
+    >
       <FaStripe size={60} />
     </PrimaryLink>
   );
@@ -59,7 +68,8 @@ export function Header(props: React.ComponentPropsWithoutRef<"header">) {
     >
       <nav className="px-4 text-white lg:px-6">
         <div className="relative mx-auto flex max-w-screen-xl flex-wrap items-center justify-between py-2">
-          <div className="flex items-center lg:order-2">
+          <LogoLink className="lg:hidden" />
+          <div className="flex items-center lg:order-2 lg:hidden">
             <BurgerButton onClick={toggleMenu} />
           </div>
           <div className="hidden w-full items-center justify-between gap-12 lg:order-1 lg:flex lg:w-auto">
@@ -92,37 +102,47 @@ export function Header(props: React.ComponentPropsWithoutRef<"header">) {
             </ul>
           </div>
           {/* MOBILE NAV BAR */}
-          {open && (
+          <div
+            className={classnames(
+              "fixed inset-4 grid grid-cols-1 text-slate-600 transition-opacity duration-500 ease-out md:grid-cols-2 lg:hidden",
+              open ? "opacity-100" : "pointer-events-none opacity-0"
+            )}
+            id="mobile-menu"
+          >
+            <div className="col-span-1 hidden md:block"></div>
             <div
-              className="fixed inset-0 w-full bg-gray-900 p-10 lg:hidden"
+              className={classnames(
+                "col-span-1 rounded-xl bg-white text-slate-600 shadow-xl transition-opacity duration-300 ease-out lg:hidden"
+              )}
               id="mobile-menu"
             >
-              <div className="flex flex-col items-center gap-4">
-                <button
-                  onClick={toggleMenu}
-                  className="dark:hover:bg-primary-900 self-end rounded-xl p-2"
-                >
-                  <AiOutlineClose
-                    color="white"
-                    style={{
-                      width: 35,
-                      height: 35,
-                    }}
-                    className="dark:hover:bg-primary-900 dark:focus:ring-primary-600 inline-flex  items-center rounded-lg text-sm text-gray-200 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-200"
-                  />
-                </button>
-                <LogoLink />
-                <ul className="mt-4 flex flex-col items-center gap-5 text-2xl">
+              <div className="flex flex-col items-center">
+                <div className="flex w-full items-start justify-between px-6 pt-4">
+                  <LogoLink className="max-h-[50px] text-[#635BFF]" />
+                  <button
+                    onClick={toggleMenu}
+                    className="dark:hover:bg-primary-900 max-h-[50px] self-end rounded-xl pb-[10px]"
+                  >
+                    <GrFormClose color="#334155" size={30} />
+                  </button>
+                </div>
+                <ul className="mt-4 flex w-full flex-col items-center text-xl text-slate-600">
                   {links.map((link) => (
-                    <li key={link.label}>
-                      <PrimaryLink href={link.href}>{link.label}</PrimaryLink>
+                    <li
+                      key={link.label}
+                      className="w-full border-b border-dashed border-slate-200 last:border-0"
+                    >
+                      <button className="flex w-full items-center justify-between px-6 py-5 hover:text-slate-500">
+                        <span className="font-semibold">{link.label}</span>
+                        <BsChevronRight size={20} strokeWidth={1} />
+                      </button>
                     </li>
                   ))}
                 </ul>
                 <ul className="flex flex-col items-center gap-5 text-2xl"></ul>
               </div>
             </div>
-          )}
+          </div>
         </div>
       </nav>
     </header>
