@@ -7,6 +7,8 @@ import { useEffect, useRef } from "react";
 
 const title = "Payments infrastructure for the internet";
 
+const textClass = "text-[70px] sm:text-[77px] lg:text-[94px]";
+
 export function StripeHeroEffect(props: React.ComponentPropsWithoutRef<"div">) {
   const { className, ...otherProps } = props;
   const canvas = useRef<HTMLCanvasElement>(null);
@@ -25,18 +27,18 @@ export function StripeHeroEffect(props: React.ComponentPropsWithoutRef<"div">) {
     >
       <div className={styles.container}>
         <div className={styles.titleContainer}>
-          <h1 className={classnames(styles.title, styles.titleMain)}>
+          <h1 className={classnames(styles.title, textClass, styles.titleMain)}>
             {title}
           </h1>
           <div
             aria-hidden
-            className={classnames(styles.title, styles.titleOverlay)}
+            className={classnames(styles.title, textClass, styles.titleOverlay)}
           >
             {title}
           </div>
           <div
             aria-hidden
-            className={classnames(styles.title, styles.titleOverlay)}
+            className={classnames(styles.title, textClass, styles.titleOverlay)}
           >
             {title}
           </div>
@@ -44,7 +46,7 @@ export function StripeHeroEffect(props: React.ComponentPropsWithoutRef<"div">) {
         <div className={styles.canvasContainer}>
           <canvas
             ref={canvas}
-            id="canv"
+            id="gradientCanvas"
             className={styles.canvas}
             width="32"
             height="32"

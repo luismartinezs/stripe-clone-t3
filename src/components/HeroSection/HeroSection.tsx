@@ -6,9 +6,9 @@ import { StripeHeroEffect } from "~/components/StripeHeroEffect";
 export function HeroSection() {
   return (
     <SectionWrapper className="xl:mt-20">
-      <div className="isolate grid grid-cols-2">
+      <div className="isolate grid grid-cols-1 md:grid-cols-2">
         <div className="grid gap-y-[32px]">
-          <StripeHeroEffect className="z-0 h-[400px]" />
+          <StripeHeroEffect className="z-0 h-[350px] lg:h-[400px]" />
           <p className="z-10 max-w-[45ch] text-xl text-gray-700/90">
             Millions of businesses of all sizes—from startups to large
             enterprises—use Stripe&apos;s software and APIs to accept payments,
@@ -23,7 +23,7 @@ export function HeroSection() {
             </ArrowButton>
           </div>
         </div>
-        <HeroGraphic className="z-10" />
+        <HeroGraphic className="z-10 hidden md:block" />
       </div>
     </SectionWrapper>
   );

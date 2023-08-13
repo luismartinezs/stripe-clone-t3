@@ -171,7 +171,7 @@ function DesktopGraphic(props: React.ComponentPropsWithoutRef<"div">) {
   return (
     <div
       className={classNames(
-        "grid-rows-auto absolute left-[93px] top-0 grid w-[929px] grid-cols-[152px_1fr] gap-[24px] rounded-[8px] p-[24px] text-[11px] font-light leading-[14px] tracking-[.2px] text-[#425466]",
+        "grid-rows-auto grid w-[929px] grid-cols-[152px_1fr] gap-[24px] rounded-[8px] p-[24px] text-[11px] font-light leading-[14px] tracking-[.2px] text-[#425466]",
         styles.desktopGraphic,
         className
       )}
@@ -202,8 +202,14 @@ export function HeroGraphic(props: React.ComponentPropsWithoutRef<"div">) {
       className={classNames("relative isolate select-none", className)}
       {...otherProps}
     >
-      <DesktopGraphic className="z-0" aria-hidden="true" />
-      <MobileGraphic className="z-10" aria-hidden="true" />
+      <DesktopGraphic
+        className="absolute left-[230px] top-0 z-0"
+        aria-hidden="true"
+      />
+      <MobileGraphic
+        className="absolute left-[140px] z-10"
+        aria-hidden="true"
+      />
     </div>
   );
 }
