@@ -8,6 +8,7 @@ import { PrimaryLink } from "~/components/PrimaryLink";
 import { BurgerButton } from "~/components/BurgerButton";
 import { AnimatedArrow } from "~/components/AnimatedArrow";
 import classnames from "classnames";
+import { ArrowButton } from "~/components/ArrowButton";
 
 const links = [
   {
@@ -105,7 +106,7 @@ export function Header(props: React.ComponentPropsWithoutRef<"header">) {
           <div
             className={classnames(
               "fixed inset-4 grid grid-cols-1 text-slate-600 transition-opacity duration-500 ease-out md:grid-cols-2 lg:hidden",
-              open ? "opacity-100" : "pointer-events-none opacity-0"
+              !open ? "opacity-100" : "pointer-events-none opacity-0"
             )}
             id="mobile-menu"
           >
@@ -116,7 +117,7 @@ export function Header(props: React.ComponentPropsWithoutRef<"header">) {
               )}
               id="mobile-menu"
             >
-              <div className="flex flex-col items-center">
+              <div className="flex h-full flex-col items-center">
                 <div className="flex w-full items-start justify-between px-6 pt-4">
                   <LogoLink className="max-h-[50px] text-[#635BFF]" />
                   <button
@@ -139,7 +140,11 @@ export function Header(props: React.ComponentPropsWithoutRef<"header">) {
                     </li>
                   ))}
                 </ul>
-                <ul className="flex flex-col items-center gap-5 text-2xl"></ul>
+                <div className="mt-auto flex w-full justify-center bg-slate-100 py-3">
+                  <ArrowButton className="bg-[#635BFF] py-[5px] pl-4 pr-2 font-semibold text-white hover:bg-slate-900">
+                    Sign in
+                  </ArrowButton>
+                </div>
               </div>
             </div>
           </div>
