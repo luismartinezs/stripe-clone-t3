@@ -106,7 +106,7 @@ export function Header(props: React.ComponentPropsWithoutRef<"header">) {
           <div
             className={classnames(
               "fixed inset-4 grid grid-cols-1 text-slate-600 transition-opacity duration-500 ease-out md:grid-cols-2 lg:hidden",
-              !open ? "opacity-100" : "pointer-events-none opacity-0"
+              open ? "opacity-100" : "pointer-events-none opacity-0"
             )}
             id="mobile-menu"
           >
