@@ -6,70 +6,7 @@ import { AiFillApple } from "react-icons/ai";
 import { FiWind } from "react-icons/fi";
 
 import styles from "./HeroGraphic.module.css";
-
-type TOrientation = "vertical" | "horizontal";
-
-function getCardStyles(size: number, orientation: TOrientation = "horizontal") {
-  const isHorizontal = orientation === "horizontal";
-  const yFactor = 2.125;
-  const xFactor = 3.37;
-
-  return {
-    width: isHorizontal ? size : (size / xFactor) * yFactor,
-    height: isHorizontal ? (size / xFactor) * yFactor : size,
-    borderRadius: (size / xFactor) * 0.18,
-  };
-}
-
-function CreditCard({
-  size,
-  src,
-  name,
-  className,
-}: {
-  size: number;
-  src: string;
-  name: string;
-  className?: string;
-}) {
-  return (
-    <div
-      className={classNames(
-        "flex items-center justify-center border border-gray-200 bg-white",
-        className
-      )}
-      style={getCardStyles(size)}
-    >
-      <Image
-        src={src}
-        alt={name ? `${name} logo` : ""}
-        width={size}
-        height={(size / 3.37) * 2.125}
-      />
-    </div>
-  );
-}
-
-function LargeCard({
-  size,
-  className,
-  orientation,
-  children,
-}: {
-  size: number;
-  className?: string;
-  orientation?: "vertical" | "horizontal";
-  children?: React.ReactNode;
-}) {
-  return (
-    <div
-      style={getCardStyles(size, orientation)}
-      className={classNames(className, "border border-gray-200")}
-    >
-      {children}
-    </div>
-  );
-}
+import { CreditCard } from "~/components/CreditCard";
 
 function MobileGraphic(props: React.ComponentPropsWithoutRef<"div">) {
   const { className, ...otherProps } = props;
@@ -83,14 +20,14 @@ function MobileGraphic(props: React.ComponentPropsWithoutRef<"div">) {
     >
       <div className="relative flex h-full flex-col items-center justify-center rounded-[29px] bg-white px-[16px] py-[24px] text-center text-[0.75rem] text-slate-500">
         <div className="relative isolate mb-4">
-          <LargeCard
+          <CreditCard.Large
             size={70}
             orientation="vertical"
             className="bg-gradient-to-tl from-violet-500 to-orange-300 shadow"
           />
 
           <div className="absolute left-[10px] top-[10px] z-10">
-            <LargeCard
+            <CreditCard.Large
               size={70}
               orientation="vertical"
               className="bg-gradient-to-br from-yellow-100 via-yellow-300 to-yellow-500 shadow-lg"
@@ -122,18 +59,18 @@ function MobileGraphic(props: React.ComponentPropsWithoutRef<"div">) {
               <div className="flex h-[1.2rem] items-center justify-between border-b border-gray-200 px-1 py-1 text-[0.7rem]">
                 <div className="text-slate-400">Number</div>
                 <div className="flex gap-1">
-                  <CreditCard
+                  <CreditCard.Small
                     src="/images/Visa_Inc.-Logo.wine.svg"
                     size={16}
                     name="Visa"
                   />
-                  <CreditCard
+                  <CreditCard.Small
                     src="/images/Mastercard-Logo.wine.svg"
                     size={16}
                     name="Mastercard"
                     className="bg-[#2A1D50]"
                   />
-                  <CreditCard
+                  <CreditCard.Small
                     src="/images/American_Express-Logo.wine.svg"
                     size={16}
                     name="American Express"

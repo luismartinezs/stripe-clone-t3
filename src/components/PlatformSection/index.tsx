@@ -1,6 +1,6 @@
 import Link from "next/link";
 import { ArrowButton } from "~/components/ArrowButton";
-import { Button } from "~/components/Button";
+import { PlatformGraphic } from "~/components/PlatformSection/PlatformGraphic";
 
 import { SectionWrapper } from "~/components/SectionWrapper";
 
@@ -69,6 +69,7 @@ export function PlatformSection() {
           </ArrowButton>
         </div>
       </div>
+      <PlatformGraphic />
     </SectionWrapper>
   );
 }
