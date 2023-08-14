@@ -61,15 +61,22 @@ const images: TImageProps[] = [
 
 export function LogosSection() {
   return (
-    <SectionWrapper className="grid grid-cols-2 gap-y-[40px] md:grid-cols-4">
-      {images.map((img) => (
-        <div
-          key={img.src}
-          className="relative flex h-[60px] items-center justify-center md:h-[80px]"
-        >
-          <Image src={img.src} alt={img.alt} fill className="object-contain" />
-        </div>
-      ))}
+    <SectionWrapper withGuides>
+      <div className="grid grid-cols-2 gap-y-[40px] md:grid-cols-4">
+        {images.map((img) => (
+          <div
+            key={img.src}
+            className="relative flex h-[60px] items-center justify-center md:h-[80px]"
+          >
+            <Image
+              src={img.src}
+              alt={img.alt}
+              fill
+              className="object-contain"
+            />
+          </div>
+        ))}
+      </div>
     </SectionWrapper>
   );
 }

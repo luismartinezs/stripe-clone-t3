@@ -10,8 +10,12 @@ const title = "Payments infrastructure for the internet";
 
 const textClass = "text-[70px] sm:text-[77px] lg:text-[94px]";
 
-export function StripeHeroEffect(props: React.ComponentPropsWithoutRef<"div">) {
-  const { className, ...otherProps } = props;
+export function StripeHeroEffect(
+  props: React.ComponentPropsWithoutRef<"div"> & {
+    titleClassName?: string;
+  }
+) {
+  const { className, titleClassName, ...otherProps } = props;
   const canvas = useRef<HTMLCanvasElement>(null);
 
   useEffect(() => {
@@ -28,20 +32,32 @@ export function StripeHeroEffect(props: React.ComponentPropsWithoutRef<"div">) {
     >
       <div className={styles.container}>
         <div className={styles.titleContainer}>
-          <h1 className={classnames(styles.title, textClass, styles.titleMain)}>
-            {title}
-          </h1>
-          <div
-            aria-hidden
-            className={classnames(styles.title, textClass, styles.titleOverlay)}
-          >
-            {title}
-          </div>
-          <div
-            aria-hidden
-            className={classnames(styles.title, textClass, styles.titleOverlay)}
-          >
-            {title}
+          <div className={titleClassName}>
+            <h1
+              className={classnames(styles.title, textClass, styles.titleMain)}
+            >
+              {title}
+            </h1>
+            <div
+              aria-hidden
+              className={classnames(
+                styles.title,
+                textClass,
+                styles.titleOverlay
+              )}
+            >
+              {title}
+            </div>
+            <div
+              aria-hidden
+              className={classnames(
+                styles.title,
+                textClass,
+                styles.titleOverlay
+              )}
+            >
+              {title}
+            </div>
           </div>
         </div>
         <div
