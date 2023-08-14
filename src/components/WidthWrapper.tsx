@@ -1,5 +1,11 @@
 import classnames from "classnames";
 
+const widthClasses = {
+  block: "max-w-5xl px-6 lg:px-0 mx-auto",
+  text: "max-w-prose px-4 sm:px-6 md:px-0 mx-auto",
+  full: "",
+};
+
 export function WidthWrapper({
   children,
   className = "",
@@ -9,28 +15,11 @@ export function WidthWrapper({
   className?: string;
   width?: "text" | "block" | "full";
 }) {
-  const baseClass = "h-full mx-auto width-wrapper";
+  // width-wrapper is for easily identifying the component in the DOM
+  const baseClass = "h-full width-wrapper";
 
   const widthClass = () => {
-    let _widthClass = "";
-
-    const widthMap = {
-      text: "max-w-prose",
-      block: "max-w-5xl",
-      full: "",
-    };
-
-    _widthClass = widthMap[width];
-
-    const paddingMap = {
-      text: "px-4 sm:px-6 md:px-0 max-w-xl mx-auto",
-      block: "px-6 lg:px-0 max-w-2xl mx-auto",
-      full: "",
-    };
-
-    _widthClass += ` ${paddingMap[width]}`;
-
-    return _widthClass;
+    return widthClasses[width];
   };
 
   return (
@@ -39,3 +28,11 @@ export function WidthWrapper({
     </div>
   );
 }
+
+WidthWrapper.className = {} as {
+  block: string;
+  text: string;
+  full: string;
+};
+
+WidthWrapper.className = widthClasses;

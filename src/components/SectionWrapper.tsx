@@ -7,20 +7,21 @@ export function SectionWrapper(
   props: React.ComponentPropsWithoutRef<"section"> & {
     withGuides?: boolean;
     bleed?: boolean;
+    yClassName?: string;
   }
 ) {
-  const { className, children, withGuides, bleed, ...otherProps } = props;
+  const { className, children, withGuides, bleed, yClassName, ...otherProps } =
+    props;
   return (
-    <div>
-      <WidthWrapper className="relative" width={bleed ? "full" : "block"}>
-        {withGuides && <Guides />}
-        <section
-          className={classnames("py-12 xl:mb-32 xl:mt-16", className)}
-          {...otherProps}
-        >
-          {children}
-        </section>
+    <section className={classnames("relative", className)} {...otherProps}>
+      {withGuides && (
+        <Guides
+          className={classnames(WidthWrapper.className.block, "max-w-[66rem]")}
+        />
+      )}
+      <WidthWrapper width={bleed ? "full" : "block"} className="px-4">
+        <div className={classnames("py-16", yClassName)}>{children}</div>
       </WidthWrapper>
-    </div>
+    </section>
   );
 }

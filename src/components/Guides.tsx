@@ -21,10 +21,10 @@ function Dashed() {
 export function Guides(props: React.ComponentPropsWithoutRef<"div">) {
   const { className, ...otherProps } = props;
   return (
-    <div aria-hidden="true" className="absolute inset-0">
+    <div aria-hidden="true" className="absolute inset-x-4 inset-y-0">
       <div
         className={classnames(
-          "relative grid h-full w-full grid-cols-1 grid-rows-[1fr] sm:grid-cols-2 md:grid-cols-4",
+          "relative grid h-full w-full grid-cols-1 grid-rows-[1fr] px-[5px] sm:grid-cols-2 md:grid-cols-4",
           className
         )}
         {...otherProps}
