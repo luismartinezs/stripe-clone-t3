@@ -1,6 +1,7 @@
 import Head from "next/head";
 import { HeroSection } from "~/components/HeroSection/HeroSection";
 import { LogosSection } from "~/components/LogosSection";
+import { PlatformSection } from "~/components/PlatformSection";
 import { PageLayout } from "~/layouts/PageLayout";
 
 export default function HomePage() {
@@ -14,6 +15,7 @@ export default function HomePage() {
       <PageLayout>
         <HeroSection />
         <LogosSection />
+        <PlatformSection />
       </PageLayout>
     </>
   );

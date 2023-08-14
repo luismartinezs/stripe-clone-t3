@@ -8,12 +8,27 @@ export function SectionWrapper(
     withGuides?: boolean;
     bleed?: boolean;
     yClassName?: string;
+    bgGray?: boolean;
   }
 ) {
-  const { className, children, withGuides, bleed, yClassName, ...otherProps } =
-    props;
+  const {
+    className,
+    children,
+    withGuides,
+    bleed,
+    yClassName,
+    bgGray,
+    ...otherProps
+  } = props;
   return (
-    <section className={classnames("relative", className)} {...otherProps}>
+    <section
+      className={classnames(
+        "relative",
+        className,
+        bgGray ? "bg-[#F6F9FC]" : ""
+      )}
+      {...otherProps}
+    >
       {withGuides && (
         <Guides
           className={classnames(WidthWrapper.className.block, "max-w-[66rem]")}
