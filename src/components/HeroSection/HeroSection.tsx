@@ -12,7 +12,7 @@ export function HeroSection() {
       className="mt-16 xl:mt-20"
       withGuides
       bleed
-      yClassName="py-16 xl:pb-[200px] xl:pt-[100px]"
+      yClassName="py-16 xl:pb-[100px] xl:pt-[100px]"
     >
       <div
         className={classnames(
@@ -32,7 +32,7 @@ export function HeroSection() {
             <ArrowButton className="bg-slate-700 py-1 pl-4 pr-2 font-semibold text-white hover:bg-slate-500">
               Start now
             </ArrowButton>
-            <ArrowButton className=" font-semibold text-slate-700 hover:text-slate-600">
+            <ArrowButton className="font-semibold text-slate-700 hover:text-slate-600">
               Contact sales
             </ArrowButton>
           </div>

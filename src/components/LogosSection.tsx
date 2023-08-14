@@ -12,49 +12,49 @@ const images: TImageProps[] = [
   {
     src: "/images/Deliveroo-Logo.png",
     alt: "Deliveroo logo",
-    width: 200,
+    width: 150,
     height: 40,
   },
   {
     src: "/images/Booking.Com-logo.png",
     alt: "Deliveroo logo",
-    width: 200,
+    width: 170,
     height: 40,
   },
   {
     src: "/images/La-redoute-brand-logo.png",
     alt: "Deliveroo logo",
-    width: 200,
+    width: 60,
     height: 40,
   },
   {
     src: "/images/opentable-vector-logo.png",
     alt: "Deliveroo logo",
-    width: 200,
+    width: 170,
     height: 40,
   },
   {
     src: "/images/1200px-ManoMano_2018.png",
     alt: "Deliveroo logo",
-    width: 200,
+    width: 180,
     height: 40,
   },
   {
     src: "/images/ASOS_(retailer)-Logo.wine.png",
     alt: "Deliveroo logo",
-    width: 200,
+    width: 100,
     height: 40,
   },
   {
     src: "/images/Catawiki_logo_new.png",
     alt: "Deliveroo logo",
-    width: 200,
+    width: 150,
     height: 40,
   },
   {
     src: "/images/xero-logo.png",
     alt: "Deliveroo logo",
-    width: 200,
+    width: 50,
     height: 40,
   },
 ];
@@ -71,7 +71,9 @@ export function LogosSection() {
             <Image
               src={img.src}
               alt={img.alt}
-              fill
+              width={img.width}
+              height={img.height}
+              // fill
               className="object-contain"
             />
           </div>
