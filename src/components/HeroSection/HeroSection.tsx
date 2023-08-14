@@ -3,7 +3,7 @@ import { ArrowButton } from "~/components/ArrowButton";
 import { HeroGraphic } from "~/components/HeroSection/HeroGraphic";
 import { SectionWrapper } from "~/components/SectionWrapper";
 import { StripeHeroEffect } from "~/components/StripeHeroEffect";
-import { TextEffect } from "~/components/StripeHeroEffect/TextEffect";
+import { TextEffect } from "~/components/StripeHeroEffect";
 import { WidthWrapper } from "~/components/WidthWrapper";
 
 export function HeroSection() {

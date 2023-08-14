@@ -2,6 +2,7 @@
 import classnames from "classnames";
 
 import { GradientEffect } from "~/components/StripeHeroEffect/GradientEffect";
+export { TextEffect } from "~/components/StripeHeroEffect/TextEffect";
 
 export function StripeHeroEffect(
   props: React.ComponentPropsWithoutRef<"div"> & {
@@ -18,3 +19,5 @@ export function StripeHeroEffect(
     </div>
   );
 }
+
+export { GradientEffect };
