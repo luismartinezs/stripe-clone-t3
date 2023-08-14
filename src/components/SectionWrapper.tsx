@@ -7,7 +7,7 @@ export function SectionWrapper(
   return (
     <section
       className={classnames(
-        "container mx-auto max-w-7xl py-12 xl:mb-32 xl:mt-16",
+        "container mx-auto max-w-7xl px-8 py-12 xl:mb-32 xl:mt-16 xl:px-0",
         className
       )}
       {...otherProps}

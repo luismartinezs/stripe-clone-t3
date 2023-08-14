@@ -5,7 +5,7 @@ import { StripeHeroEffect } from "~/components/StripeHeroEffect";
 
 export function HeroSection() {
   return (
-    <SectionWrapper className="xl:mt-20">
+    <SectionWrapper className="mt-16 xl:mt-20">
       <div className="isolate grid grid-cols-1 md:grid-cols-2">
         <div className="grid gap-y-[32px]">
           <StripeHeroEffect className="z-0 h-[350px] lg:h-[400px]" />
