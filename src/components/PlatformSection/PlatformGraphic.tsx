@@ -1,8 +1,101 @@
 import Image from "next/image";
 import { CreditCard } from "~/components/CreditCard";
-import { FaEuroSign } from "react-icons/fa";
+import { FaEuroSign, FaGooglePay, FaCcApplePay } from "react-icons/fa";
 import { HiMiniCreditCard } from "react-icons/hi2";
 import { BiSolidBank } from "react-icons/bi";
+import { SiContactlesspayment } from "react-icons/si";
+import classnames from "classnames";
+
+function KeypadButton({ type }: { type?: "light" | "red" | "green" }) {
+  const classes = {
+    light: "bg-[linear-gradient(hsla(0,0%,100%,.18),hsla(0,0%,100%,.08))]",
+    red: "bg-[linear-gradient(#e36456,#d14a3f)]",
+    green: "bg-[linear-gradient(#42bb90,#2f9d71)]",
+    default: "bg-[linear-gradient(rgba(10,37,64,0),rgba(10,37,64,.25))]",
+  };
+  return (
+    <div
+      className={classnames(
+        "rounded-[8px] shadow-[0_0_0_2px_rgba(6,24,44,.4),_0_4px_6px_-1px_rgba(6,24,44,.65),_inset_0_1px_0_hsla(0,0%,100%,.08)]",
+        classes[type ?? "default"]
+      )}
+    ></div>
+  );
+}
+
+function TerminalGraphicKeypad() {
+  return (
+    <div className="mx-[9px] mt-[13px] grid auto-cols-auto grid-flow-row auto-rows-[34px] grid-cols-[repeat(3,_1fr)] gap-[12px]">
+      <KeypadButton />
+      <KeypadButton />
+      <KeypadButton />
+      <KeypadButton />
+      <KeypadButton />
+      <KeypadButton />
+      <KeypadButton />
+      <KeypadButton />
+      <KeypadButton />
+      <KeypadButton type="light" />
+      <KeypadButton />
+      <KeypadButton type="light" />
+      <KeypadButton type="red" />
+      <KeypadButton type="light" />
+      <KeypadButton type="green" />
+    </div>
+  );
+}
+
+function TerminalGraphicScreen() {
+  return (
+    <div className="h-[262px] rounded-[20px] bg-[linear-gradient(#1c354e,#0b2641)] p-[20px] shadow-[0_1px_1px_0_hsla(0,0%,100%,.1)]">
+      <div className="relative h-full">
+        <div className="absolute left-0 top-0 h-full w-full overflow-hidden rounded-[2px] bg-[linear-gradient(#2d445b,#132d47)]">
+          {/* card */}
+          <div className="absolute left-[calc(50%_-_37px)] top-[42px] h-[112px] w-[73px] rounded-[6px] border-[2px] border-white bg-[linear-gradient(#4b5f72,#40556a)]">
+            <div className="ml-[39px] mt-[11px] h-[21px] w-[18px] rounded-[2px] bg-white"></div>
+          </div>
+          {/* insert card */}
+          <div className="absolute -top-px left-[calc(50%_-_54px)] h-[39px] w-[107px] rounded-b-[6px] rounded-l-[6px] bg-[linear-gradient(hsla(0,0%,100%,0)_25%,hsla(0,0%,100%,.15)_85%,hsla(0,0%,100%,.5))] px-[2px] pb-[2px]">
+            <div className="border-bl-[4px] h-full rounded-br-[4px] bg-[linear-gradient(#2c435a,#294158)]"></div>
+            <div
+              className="m-[-15px_0_0_57px] h-[9px] w-[16px] animate-oscillate rounded-[2px] bg-white"
+              style={{
+                clipPath: "polygon(50% 0, 100% 100%, 0 100%)",
+              }}
+            ></div>
+          </div>
+          {/* pay methods */}
+          <div className="absolute bottom-[13px] left-[calc(50%_-_83px)] flex w-[166px] items-center justify-between">
+            <SiContactlesspayment size={49} color="#fff" />
+            <FaGooglePay size={43} color="#fff" />
+            <FaCcApplePay size={36} color="#fff" />
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+}
+
+function TerminalGraphic() {
+  return (
+    <div className="relative h-[564px] w-[301px]">
+      <div className="h-full w-full rounded-[40px] bg-[#30455d] shadow-[0_20px_30px_-10px_#26394d]">
+        <div className="h-[552px] rounded-[40px] bg-[#18324b] p-[5px] shadow-[0_2px_6px_1px_#0a2540,_inset_0_-5px_2px_1px_#0a2540,_inset_0_2px_3px_1px_#adbccb;]">
+          <div className="shadow-[0_1px_1px_0_rgba(6,24,44,.2),_inset_0_1px_1px_0_hsla(0,0%,100%,.3] h-[532px] rounded-[35px] bg-[linear-gradient(#4b5f74,#273f57)] p-[15px]">
+            <TerminalGraphicScreen />
+            <TerminalGraphicKeypad />
+          </div>
+        </div>
+        <div
+          className="border-b-px mx-auto mb-0 mt-px h-[8px] w-[15px] rounded border-[#516f8f] bg-[#374C63]"
+          style={{
+            clipPath: "polygon(50% 0, 100% 100%, 0 100%)",
+          }}
+        ></div>
+      </div>
+    </div>
+  );
+}
 
 function SlackScreen() {
   return (
@@ -102,6 +195,7 @@ export function PlatformGraphic() {
       >
         <CCard />
         <SlackScreen />
+        <TerminalGraphic />
       </div>
     </div>
   );
