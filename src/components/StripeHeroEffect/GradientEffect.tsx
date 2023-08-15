@@ -15,7 +15,7 @@ export function GradientEffect() {
   return (
     <div
       className={classnames(
-        "absolute left-0 top-auto z-[-1] h-[min(76vh,_max(500px,_50vw))] w-screen origin-[-1000px_100%] skew-y-[-11deg] overflow-hidden",
+        "absolute left-0 top-auto z-[-1] h-[min(76vh,_max(450px,_50vw))] w-screen origin-[-1000px_100%] skew-y-[-11deg] overflow-hidden",
         config.disableHeroAnimation &&
           "bg-gradient-to-tr from-orange-500 via-purple-500 to-pink-500"
       )}

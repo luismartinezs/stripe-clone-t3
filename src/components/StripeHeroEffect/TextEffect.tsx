@@ -12,16 +12,16 @@ function Title() {
   );
 }
 
-const textClass = "text-[8vh] sm:text-[77px] lg:text-[94px]";
+const textClass = "text-[7vh] sm:text-[77px] lg:text-[94px]";
 
 const titleClasses =
-  "absolute mt-[100px] flex items-end tracking-[-0.10rem] max-w-[10ch] font-semibold leading-[1.04]";
+  "absolute lg:mt-[100px] sm:mt-[70px] mt-[60px] flex items-end tracking-[-0.10rem] max-w-[10ch] font-semibold leading-[1.04]";
 const titleOverlayClasses = "mix-blend-[revert] z-[2] text-[#111] opacity-30";
 
 export function TextEffect({ className }: { className?: string }) {
   return (
     <div className={className}>
-      <div className="relative h-[398px]">
+      <div className="relative h-[260px] sm:h-[320px] lg:h-[398px]">
         <h1
           className={classnames(
             titleClasses,

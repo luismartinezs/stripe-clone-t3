@@ -20,7 +20,7 @@ export function HeroSection() {
           WidthWrapper.className.block
         )}
       >
-        <div className="grid gap-y-[32px]">
+        <div className="grid gap-y-[24px] sm:gap-y-[32px]">
           <StripeHeroEffect className={classnames("z-0")} />
           <TextEffect />
           <p className="z-10 max-w-[45ch] text-xl text-gray-700/90">

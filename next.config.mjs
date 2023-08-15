@@ -17,6 +17,16 @@ const config = {
     locales: ["en"],
     defaultLocale: "en",
   },
+  images: {
+    remotePatterns: [
+      {
+        protocol: 'https',
+        hostname: 'images.ctfassets.net',
+        port: '',
+        pathname: '**'
+      }
+    ]
+  }
 };
 
 export default config;
