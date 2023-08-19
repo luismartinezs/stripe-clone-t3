@@ -43,9 +43,9 @@ export function GlobalSection(
           </p>
         </div>
       </div>
-      <ul className="mt-16 grid grid-cols-4 gap-4">
+      <ul className="mt-8 grid grid-cols-1 gap-8 sm:mt-16 sm:grid-cols-2 md:grid-cols-4">
         {kpis.map((kpi) => (
-          <li key={kpi.id} className="col-span-1 space-y-3 px-4 py-8">
+          <li key={kpi.id} className="col-span-1">
             <div className="relative text-2xl font-semibold text-white before:absolute before:-left-4 before:top-0 before:h-full before:w-px before:border-l before:border-[#00D4FF] before:content-['']">
               {kpi.metric}
             </div>
