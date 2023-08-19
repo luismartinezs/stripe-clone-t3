@@ -24,7 +24,7 @@ export function SectionWrapper(
   } = props;
   const bgClassMap = {
     gray: "bg-[#F6F9FC]",
-    dark: "bg-[#0a2540]",
+    dark: "bg-[#0a2540] text-white",
     default: "",
   };
   return (

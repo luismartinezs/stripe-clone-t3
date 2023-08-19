@@ -252,7 +252,7 @@ function CCard() {
 
 export function PlatformGraphic() {
   return (
-    <div className="relative h-[374px] text-sm sm:h-[474px] lg:h-[764px]">
+    <div className="relative h-[374px] text-sm sm:h-[474px] lg:h-[900px]">
       <div
         className="
       absolute -top-[30px] grid grid-cols-[253px_392px_201px] grid-rows-[70px_157px_97px_333px] gap-[16px] sm:-top-[50px] sm:gap-[25px] lg:-top-[110px] lg:grid-cols-[380px_589px_301px] lg:grid-rows-[101px_235px_148px_500px] lg:gap-[40px]"

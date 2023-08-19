@@ -19,8 +19,8 @@ export default function HomePage() {
       <PageLayout>
         <HeroSection />
         <LogosSection />
-        <PlatformSection />
-        <GlobalSection />
+        <PlatformSection className="z-0 pb-[100px]" />
+        <GlobalSection className="-top-[50px] z-10" />
       </PageLayout>
     </>
   );

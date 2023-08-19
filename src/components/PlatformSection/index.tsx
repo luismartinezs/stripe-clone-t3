@@ -4,10 +4,12 @@ import { PlatformGraphic } from "~/components/PlatformSection/PlatformGraphic";
 
 import { SectionWrapper } from "~/components/SectionWrapper";
 
-export function PlatformSection() {
+export function PlatformSection(
+  props: React.ComponentPropsWithoutRef<"section">
+) {
   return (
-    <SectionWrapper withGuides bgStyle="gray">
-      <div className="grid grid-cols-2 gap-10">
+    <SectionWrapper withGuides bgStyle="gray" {...props}>
+      <div className="mb-8 grid grid-cols-1 gap-4 sm:mb-0 sm:grid-cols-2 sm:gap-10">
         <div>
           <h3 className="text-xl font-semibold text-indigo-500">
             Unified platform
@@ -36,7 +38,7 @@ export function PlatformSection() {
             , and everything in between.
           </p>
         </div>
-        <p className="text-xl">
+        <p className="mt-4 text-xl sm:mt-0">
           We also help companies{" "}
           <Link className="link" href="https://stripe.com/en-es/radar">
             beat fraud
@@ -63,7 +65,7 @@ export function PlatformSection() {
           </Link>
           , and much more.
         </p>
-        <div>
+        <div className="mt-4 sm:mt-0">
           <ArrowButton className="max-w-min whitespace-nowrap bg-indigo-500  py-1 pl-4 pr-2 font-semibold text-white hover:bg-slate-900">
             Start with payments
           </ArrowButton>
