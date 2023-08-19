@@ -8,7 +8,7 @@ import classnames from "classnames";
 
 function DashboardGraphic() {
   return (
-    <div className="col-start-1 col-end-4 row-start-4 row-end-4 flex flex-col sm:col-start-2">
+    <div className="col-start-2 col-end-4 row-start-4 row-end-4 flex flex-col">
       <div className="relative min-h-[72x] min-w-[100px] overflow-hidden rounded-[8px] bg-white shadow-[0_50px_100px_-20px_rgba(50,50,93,0.25),0_30px_60px_-30px_rgba(0,0,0,0.3)]">
         <div className="flex">
           <Image
@@ -28,10 +28,10 @@ function DashboardGraphic() {
 
 function ApplePayGraphic() {
   return (
-    <div className="col-start-1 col-end-auto row-start-2 row-end-auto flex flex-col sm:row-start-3">
+    <div className="col-start-1 col-end-auto row-start-3 row-end-auto flex flex-col">
       <div className="relative w-full max-w-[301px] self-end">
         <div className="h-0 w-full max-w-[301px] pb-[204.3%]">
-          <div className="absolute left-0 top-0 origin-top-left scale-[0.371053] sm:scale-[0.665789] lg:scale-100">
+          <div className="absolute left-0 top-0 origin-top-left scale-[0.84] lg:scale-100">
             <div className="relative h-[615px] w-[301px] rounded-[42px] bg-[#f6f9fc] p-[8px] text-[16px] shadow-[0_50px_100px_-20px_rgba(50,50,93,0.25),0_30px_60px_-30px_rgba(0,0,0,0.3),inset_0_-2px_6px_0_rgba(10,37,64,0.35)]"></div>
           </div>
         </div>
@@ -142,7 +142,7 @@ function SlackScreen() {
     <div className="col-start-2 col-end-auto row-start-2 row-end-[span_2] flex flex-col">
       <div className="relative w-full max-w-[588px]">
         <div className="h-0 w-full max-w-[588px] pb-[71.77%]">
-          <div className="absolute left-0 top-0 origin-top-left scale-[0.371053] sm:scale-[0.665789] lg:scale-100">
+          <div className="absolute left-0 top-0 origin-top-left scale-[0.64] sm:scale-[0.665789] lg:scale-100">
             <div className="relative isolate flex h-[422px] w-[588px] select-none items-center justify-center overflow-hidden rounded-[calc(8px*1/1)] bg-[#f6f9fc] text-[13px] leading-[20px] tracking-[0.2px] text-[#425466] shadow-[0_50px_100px_-20px_rgba(50,50,93,.25),_0_30px_60px_-30px_rgba(0,0,0,.3)]">
               <div
                 className="absolute inset-0 z-0 h-[65%] border-r-transparent bg-purple-800"
@@ -201,10 +201,10 @@ function SlackScreen() {
 
 function CCard() {
   return (
-    <div className="col-start-2 col-end-auto row-start-2 row-end-auto flex flex-col sm:col-start-1">
+    <div className="col-start-1 col-end-auto row-start-2 row-end-auto flex flex-col">
       <div className="relative w-full max-w-[380px]">
         <div className="h-0 w-full max-w-[380px] pb-[61.84%]">
-          <div className="absolute left-0 top-0 origin-top-left scale-[0.371053] sm:scale-[0.665789] lg:scale-100">
+          <div className="absolute left-0 top-0 origin-top-left scale-[0.665789] lg:scale-100">
             <CreditCard.Large
               size={380}
               className="relative flex flex-col justify-between bg-[#FFC025] p-4 pl-7 text-white shadow-[0_50px_100px_-20px_rgba(50,50,93,.25),_0_30px_60px_-30px_rgba(0,0,0,.3)]"
@@ -253,7 +253,7 @@ export function PlatformGraphic() {
     <div className="relative h-[374px] text-sm sm:h-[474px] lg:h-[764px]">
       <div
         className="
-      absolute -inset-x-4 -top-[30px] grid grid-cols-[112px_141px_58px_38px] grid-rows-[107px_87px_125px_185px] gap-[16px] sm:-top-[110px] sm:grid-cols-[253px_392px_201px] sm:grid-rows-[70px_157px_97px_333px] sm:gap-[25px] lg:grid-cols-[380px_589px_301px] lg:grid-rows-[101px_235px_148px_500px] lg:gap-[40px]"
+      absolute -top-[30px] grid grid-cols-[253px_392px_201px] grid-rows-[70px_157px_97px_333px] gap-[16px] sm:-top-[50px] sm:gap-[25px] lg:-top-[110px] lg:grid-cols-[380px_589px_301px] lg:grid-rows-[101px_235px_148px_500px] lg:gap-[40px]"
       >
         <CCard />
         <SlackScreen />
