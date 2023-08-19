@@ -32,7 +32,9 @@ function ApplePayGraphic() {
       <div className="relative w-full max-w-[301px] self-end">
         <div className="h-0 w-full max-w-[301px] pb-[204.3%]">
           <div className="absolute left-0 top-0 origin-top-left scale-[0.84] lg:scale-100">
-            <div className="relative h-[615px] w-[301px] rounded-[42px] bg-[#f6f9fc] p-[8px] text-[16px] shadow-[0_50px_100px_-20px_rgba(50,50,93,0.25),0_30px_60px_-30px_rgba(0,0,0,0.3),inset_0_-2px_6px_0_rgba(10,37,64,0.35)]"></div>
+            <div className="relative h-[615px] w-[301px] rounded-[42px] bg-[#f6f9fc] p-[8px] text-[16px] shadow-[0_50px_100px_-20px_rgba(50,50,93,0.25),0_30px_60px_-30px_rgba(0,0,0,0.3),inset_0_-2px_6px_0_rgba(10,37,64,0.35)]">
+              <div className="p-4">TODO Apple pay content</div>
+            </div>
           </div>
         </div>
       </div>
