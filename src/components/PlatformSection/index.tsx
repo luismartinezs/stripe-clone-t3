@@ -6,7 +6,7 @@ import { SectionWrapper } from "~/components/SectionWrapper";
 
 export function PlatformSection() {
   return (
-    <SectionWrapper withGuides bgGray>
+    <SectionWrapper withGuides bgStyle="gray">
       <div className="grid grid-cols-2 gap-10">
         <div>
           <h3 className="text-xl font-semibold text-indigo-500">

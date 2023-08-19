@@ -8,7 +8,8 @@ export function SectionWrapper(
     withGuides?: boolean;
     bleed?: boolean;
     yClassName?: string;
-    bgGray?: boolean;
+    bgStyle?: "gray" | "dark";
+    skew?: boolean;
   }
 ) {
   const {
@@ -17,24 +18,34 @@ export function SectionWrapper(
     withGuides,
     bleed,
     yClassName,
-    bgGray,
+    bgStyle,
+    skew,
     ...otherProps
   } = props;
+  const bgClassMap = {
+    gray: "bg-[#F6F9FC]",
+    dark: "bg-[#0a2540]",
+    default: "",
+  };
   return (
-    <section
-      className={classnames(
-        "relative",
-        className,
-        bgGray ? "bg-[#F6F9FC]" : ""
-      )}
-      {...otherProps}
-    >
+    <section className={classnames("relative", className)} {...otherProps}>
+      <div
+        className={classnames(
+          "absolute inset-0",
+          className,
+          bgClassMap[bgStyle ?? "default"],
+          skew && "-skew-y-[6deg]"
+        )}
+      ></div>
       {withGuides && (
         <Guides
           className={classnames(WidthWrapper.className.block, "max-w-[66rem]")}
         />
       )}
-      <WidthWrapper width={bleed ? "full" : "block"} className="px-4">
+      <WidthWrapper
+        width={bleed ? "full" : "block"}
+        className="relative z-10 px-4"
+      >
         <div className={classnames("py-16", yClassName)}>{children}</div>
       </WidthWrapper>
     </section>

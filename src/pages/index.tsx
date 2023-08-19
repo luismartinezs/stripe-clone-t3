@@ -1,4 +1,5 @@
 import Head from "next/head";
+import { GlobalSection } from "~/components/GlobalSection";
 import { HeroSection } from "~/components/HeroSection/HeroSection";
 import { LogosSection } from "~/components/LogosSection";
 import { PlatformSection } from "~/components/PlatformSection";
@@ -19,6 +20,7 @@ export default function HomePage() {
         <HeroSection />
         <LogosSection />
         <PlatformSection />
+        <GlobalSection />
       </PageLayout>
     </>
   );
