@@ -9,8 +9,9 @@ export function SectionWrapper(
     bleed?: boolean;
     yClassName?: string;
     bgStyle?: "gray" | "dark";
-    skew?: boolean;
+    skew?: "top" | "bottom" | "both";
     guides?: JSX.Element;
+    background?: JSX.Element;
   }
 ) {
   const {
@@ -22,6 +23,7 @@ export function SectionWrapper(
     bgStyle,
     skew,
     guides,
+    background,
     ...otherProps
   } = props;
   const bgClassMap = {
@@ -32,19 +34,34 @@ export function SectionWrapper(
   return (
     <section className={classnames("relative", className)} {...otherProps}>
       <div className="overflow-hidden">
+        {/* background */}
         <div className="absolute h-full w-full overflow-visible">
-          <div
-            className={classnames(
-              "relative left-0 top-0 h-full max-h-none w-full overflow-hidden",
-              className,
-              bgClassMap[bgStyle ?? "default"],
-              skew && "-skew-y-[6deg]"
-            )}
-          >
-            {withGuides && guides ? guides : <Guides />}
+          <div className="relative h-full w-full overflow-hidden">
+            <div
+              className={classnames(
+                "absolute left-0 top-0 h-full max-h-none w-full origin-top-right overflow-hidden",
+                className,
+                bgClassMap[bgStyle ?? "default"],
+                skew === "top" && "-skew-y-[6deg]"
+              )}
+            >
+              {/* background */}
+              {background ?? (
+                <div
+                  className={classnames(
+                    "absolute left-0 top-0 m-0 h-full w-full",
+                    skew === "top" && "skew-y-[6deg]"
+                  )}
+                >
+                  {background}
+                </div>
+              )}
+              {/* guides */}
+              {withGuides && guides ? guides : <Guides />}
+            </div>
           </div>
         </div>
-
+        {/* content */}
         <WidthWrapper
           width={bleed ? "full" : "block"}
           className="relative z-10 px-4"

@@ -31,7 +31,7 @@ export function GlobalSection(
     <SectionWrapper
       withGuides
       bgStyle="dark"
-      skew
+      skew="top"
       guides={
         <Guides>
           <Guides.Solid className="bg-[rgba(66,71,112,0.3)]" />
@@ -41,6 +41,7 @@ export function GlobalSection(
           <Guides.Solid className="absolute right-0 top-0 bg-[rgba(66,71,112,0.3)]" />
         </Guides>
       }
+      yClassName="pt-[247px] pb-[128px]"
       {...props}
     >
       <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 sm:gap-10">
