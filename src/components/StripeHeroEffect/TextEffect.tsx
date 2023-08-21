@@ -16,7 +16,7 @@ const textClass = "text-[7vh] sm:text-[77px] lg:text-[94px]";
 
 const titleClasses =
   "absolute lg:mt-[100px] sm:mt-[70px] mt-[60px] flex items-end tracking-[-0.10rem] max-w-[10ch] font-semibold leading-[1.04]";
-const titleOverlayClasses = "mix-blend-[revert] z-[2] text-[#111] opacity-30";
+const titleOverlayClasses = "mix-blend-[revert] z-[2] text-[#111] opacity-10";
 
 export function TextEffect({ className }: { className?: string }) {
   return (
