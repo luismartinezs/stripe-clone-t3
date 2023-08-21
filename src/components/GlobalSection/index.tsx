@@ -1,5 +1,7 @@
+import classnames from "classnames";
 import { Guides } from "~/components/Guides";
 import { SectionWrapper } from "~/components/SectionWrapper";
+import styles from "./GlobalSection.module.css";
 
 const kpis = [
   {
@@ -25,8 +27,9 @@ const kpis = [
 ];
 
 export function GlobalSection(
-  props: React.ComponentPropsWithoutRef<"section">
+  props: React.ComponentPropsWithoutRef<typeof SectionWrapper>
 ) {
+  const { className, ...otherProps } = props;
   return (
     <SectionWrapper
       withGuides
@@ -42,7 +45,8 @@ export function GlobalSection(
         </Guides>
       }
       yClassName="pt-[247px] pb-[128px]"
-      {...props}
+      className={classnames(className, styles.section)}
+      {...otherProps}
     >
       <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 sm:gap-10">
         <div>

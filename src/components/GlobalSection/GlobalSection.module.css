@@ -1,0 +1,15 @@
+.section {
+  /* tailwind breakpoints */
+  --sm: 640px;
+  --md: 768px;
+  --lg: 1024px;
+  --xl: 1280px;
+  --2xl: 1536px;
+  /* this breaks it XDDD */
+  /* margin-top: -160px; */
+}
+
+@media (min-width: 768px) {
+  .section {
+  }
+}

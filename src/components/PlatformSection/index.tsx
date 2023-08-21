@@ -5,10 +5,12 @@ import { PlatformGraphic } from "~/components/PlatformSection/PlatformGraphic";
 import { SectionWrapper } from "~/components/SectionWrapper";
 
 export function PlatformSection(
-  props: React.ComponentPropsWithoutRef<"section">
+  props: React.ComponentPropsWithoutRef<typeof SectionWrapper>
 ) {
+  const { withGuides, bgStyle, ...otherProps } = props;
+
   return (
-    <SectionWrapper withGuides bgStyle="gray" {...props}>
+    <SectionWrapper withGuides bgStyle="gray" {...otherProps}>
       <div className="mb-8 grid grid-cols-1 gap-4 sm:mb-0 sm:grid-cols-2 sm:gap-10">
         <div>
           <h3 className="text-xl font-semibold text-indigo-500">

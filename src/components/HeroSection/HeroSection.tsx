@@ -9,7 +9,6 @@ import { WidthWrapper } from "~/components/WidthWrapper";
 export function HeroSection() {
   return (
     <SectionWrapper
-      className="mt-16 xl:mt-20"
       withGuides
       bleed
       yClassName="py-16 xl:pb-[100px] xl:pt-[100px]"
@@ -28,7 +27,7 @@ export function HeroSection() {
             enterprises—use Stripe&apos;s software and APIs to accept payments,
             send payouts, and manage their businesses online.
           </p>
-          <div className="flex gap-6">
+          <div className="flex gap-6 text-sm">
             <ArrowButton className="bg-slate-700 py-1 pl-4 pr-2 font-semibold text-white hover:bg-slate-500">
               Start now
             </ArrowButton>

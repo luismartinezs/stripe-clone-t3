@@ -12,6 +12,7 @@ export function SectionWrapper(
     skew?: "top" | "bottom" | "both";
     guides?: JSX.Element;
     background?: JSX.Element;
+    overflowHidden?: boolean;
   }
 ) {
   const {
@@ -24,6 +25,7 @@ export function SectionWrapper(
     skew,
     guides,
     background,
+    overflowHidden,
     ...otherProps
   } = props;
   const bgClassMap = {
@@ -33,7 +35,12 @@ export function SectionWrapper(
   };
   return (
     <section className={classnames("relative", className)} {...otherProps}>
-      <div className="overflow-hidden">
+      <div
+        className={classnames(
+          "h-full w-full",
+          overflowHidden && "overflow-hidden"
+        )}
+      >
         {/* background */}
         <div className="absolute h-full w-full overflow-visible">
           <div className="relative h-full w-full overflow-hidden">
