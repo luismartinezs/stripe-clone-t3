@@ -1,5 +1,6 @@
 import classnames from "classnames";
 import React from "react";
+import { WidthWrapper } from "~/components/WidthWrapper";
 
 function Solid({ className }: { className?: string }) {
   return (
@@ -12,14 +13,19 @@ function Solid({ className }: { className?: string }) {
   );
 }
 
-function Dashed() {
+function Dashed({ className }: { className?: string }) {
   return (
-    <div className="pointer-events-none h-full w-px bg-[linear-gradient(180deg,rgba(66,71,112,0.09),rgba(66,71,112,0.09)_50%,transparent_0,transparent)] bg-[length:1px_8px] bg-repeat"></div>
+    <div
+      className={classnames(
+        "pointer-events-none h-full w-px bg-[linear-gradient(180deg,rgba(66,71,112,0.09),rgba(66,71,112,0.09)_50%,transparent_0,transparent)] bg-[length:1px_8px] bg-repeat",
+        className
+      )}
+    ></div>
   );
 }
 
-export function Guides(props: React.ComponentPropsWithoutRef<"div">) {
-  const { className, ...otherProps } = props;
+function Guides(props: React.ComponentPropsWithoutRef<"div">) {
+  const { className, children, ...otherProps } = props;
   return (
     <div
       aria-hidden="true"
@@ -27,17 +33,27 @@ export function Guides(props: React.ComponentPropsWithoutRef<"div">) {
     >
       <div
         className={classnames(
-          "relative grid h-full w-full grid-cols-1 grid-rows-[1fr] px-[5px] sm:grid-cols-2 md:grid-cols-4",
+          "relative grid h-full w-full max-w-[66rem] grid-cols-1 grid-rows-[1fr] px-[5px] sm:grid-cols-2 md:grid-cols-4",
+          WidthWrapper.className.block,
           className
         )}
         {...otherProps}
       >
-        <Solid />
-        <Dashed />
-        <Dashed />
-        <Dashed />
-        <Solid className="absolute right-0 top-0" />
+        {children ?? (
+          <>
+            <Solid />
+            <Dashed />
+            <Dashed />
+            <Dashed />
+            <Solid className="absolute right-0 top-0" />
+          </>
+        )}
       </div>
     </div>
   );
 }
+
+Guides.Solid = Solid;
+Guides.Dashed = Dashed;
+
+export { Guides };

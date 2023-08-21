@@ -1,3 +1,4 @@
+import { Guides } from "~/components/Guides";
 import { SectionWrapper } from "~/components/SectionWrapper";
 
 const kpis = [
@@ -27,8 +28,21 @@ export function GlobalSection(
   props: React.ComponentPropsWithoutRef<"section">
 ) {
   return (
-    // TODO Fix guides not showing up and not extending to edge if section is skewed
-    <SectionWrapper withGuides bgStyle="dark" skew {...props}>
+    <SectionWrapper
+      withGuides
+      bgStyle="dark"
+      skew
+      guides={
+        <Guides>
+          <Guides.Solid className="bg-[rgba(66,71,112,0.3)]" />
+          <Guides.Dashed className="bg-[linear-gradient(180deg,rgba(66,71,112,0.3),rgba(66,71,112,0.3)_50%,transparent_0,transparent)]" />
+          <Guides.Dashed className="bg-[linear-gradient(180deg,rgba(66,71,112,0.3),rgba(66,71,112,0.3)_50%,transparent_0,transparent)]" />
+          <Guides.Dashed className="bg-[linear-gradient(180deg,rgba(66,71,112,0.3),rgba(66,71,112,0.3)_50%,transparent_0,transparent)]" />
+          <Guides.Solid className="absolute right-0 top-0 bg-[rgba(66,71,112,0.3)]" />
+        </Guides>
+      }
+      {...props}
+    >
       <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 sm:gap-10">
         <div>
           <h3 className="text-xl font-semibold text-[#00D4FF]">Global scale</h3>

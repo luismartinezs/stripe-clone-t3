@@ -10,6 +10,7 @@ export function SectionWrapper(
     yClassName?: string;
     bgStyle?: "gray" | "dark";
     skew?: boolean;
+    guides?: JSX.Element;
   }
 ) {
   const {
@@ -20,6 +21,7 @@ export function SectionWrapper(
     yClassName,
     bgStyle,
     skew,
+    guides,
     ...otherProps
   } = props;
   const bgClassMap = {
@@ -29,25 +31,27 @@ export function SectionWrapper(
   };
   return (
     <section className={classnames("relative", className)} {...otherProps}>
-      <div
-        className={classnames(
-          "absolute inset-0",
-          className,
-          bgClassMap[bgStyle ?? "default"],
-          skew && "-skew-y-[6deg]"
-        )}
-      ></div>
-      {withGuides && (
-        <Guides
-          className={classnames(WidthWrapper.className.block, "max-w-[66rem]")}
-        />
-      )}
-      <WidthWrapper
-        width={bleed ? "full" : "block"}
-        className="relative z-10 px-4"
-      >
-        <div className={classnames("py-16", yClassName)}>{children}</div>
-      </WidthWrapper>
+      <div className="overflow-hidden">
+        <div className="absolute h-full w-full overflow-visible">
+          <div
+            className={classnames(
+              "relative left-0 top-0 h-full max-h-none w-full overflow-hidden",
+              className,
+              bgClassMap[bgStyle ?? "default"],
+              skew && "-skew-y-[6deg]"
+            )}
+          >
+            {withGuides && guides ? guides : <Guides />}
+          </div>
+        </div>
+
+        <WidthWrapper
+          width={bleed ? "full" : "block"}
+          className="relative z-10 px-4"
+        >
+          <div className={classnames("py-16", yClassName)}>{children}</div>
+        </WidthWrapper>
+      </div>
     </section>
   );
 }
